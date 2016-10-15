@@ -33,8 +33,8 @@ public class BinarySearch {
 			 // loops through entire array to find the lowest value
 			 for(int counter2 = 0; counter2 < (unsortedArray.length); counter2++)
 	         {
-				 if (unsortedArray[counter2] < maxValue && unsortedArray[counter2] >= minValue)
-			     {
+				  if (unsortedArray[counter2] < maxValue && unsortedArray[counter2] >= minValue)
+			      {
 					 maxValue = unsortedArray[counter2];
 					 locationPlaceHolder = counter2;
 				 }	        	  		 	        	
@@ -45,8 +45,7 @@ public class BinarySearch {
 			  unsortedArray[locationPlaceHolder] = MAX_NUMBER_GENERATED + 1; 
 			  sortedArray[counter] = maxValue; 
 			  maxValue = MAX_NUMBER_GENERATED; // resets maxValue       	  
-		}
-				
+		}			
 		return sortedArray;		
 	}
 	
