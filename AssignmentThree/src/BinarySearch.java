@@ -16,8 +16,8 @@ import java.util.Scanner;
 public class BinarySearch {
 	
 	// global constants to make it easier to change values when needed
-	static final int NUMBER_OF_VALUES = 250; // number of array elements	
-	static final int MAX_NUMBER_GENERATED = 1000; // max random number generated
+	static int NUMBER_OF_VALUES = 250; // number of array elements	
+	static int MAX_NUMBER_GENERATED = 1000; // max random number generated
 	
 	
 	// function sorts the values of an int array from lowest to highest then returns to sorted array
@@ -97,10 +97,12 @@ public class BinarySearch {
 		System.out.println(Arrays.toString(orderedNumberArray)); // prints sorted array values in one line
 		System.out.println("");
 		
+		
+		
 		while (true)
 	 	{
-	        System.out.println("Enter Any Number From 1-1000 To Find Its Position!");
-			 
+	        System.out.println("Enter Any Number From 1-1000 To Find Its Position!");	        
+
 			// restricts input to only integers
 			if (scan.hasNextInt())
 			{
@@ -110,6 +112,39 @@ public class BinarySearch {
 				if ((numberToBeFound > 0) && (numberToBeFound <= MAX_NUMBER_GENERATED))
 				{
 					SearchNumber(orderedNumberArray, numberToBeFound); // procedure to find value
+					
+					// lets user add another number to list & finds position (bonus 4+)
+					System.out.println("Enter Any Number From 1-1000 To Add To The List!");					
+					
+					// asks for input again and restricts it to an int
+					if (scan.hasNextInt())
+					{
+						numberToBeFound = scan.nextInt();
+						
+						// restricts values to only within range of random numbers
+						if ((numberToBeFound > 0) && (numberToBeFound <= MAX_NUMBER_GENERATED))
+						{
+					    System.out.println(Arrays.toString(orderedNumberArray)); // shows user list of numbers before adding number
+					    
+					    // increasing size of the array
+						orderedNumberArray = Arrays.copyOf(orderedNumberArray, orderedNumberArray.length + 1);						
+						NUMBER_OF_VALUES = NUMBER_OF_VALUES + 1;							
+						orderedNumberArray[NUMBER_OF_VALUES - 1] = numberToBeFound; // adds number to end of array
+						
+						orderedNumberArray = OrderNumbers(orderedNumberArray); // orders array
+						System.out.println(Arrays.toString(orderedNumberArray)); // shows user list of numbers after adding number
+						SearchNumber(orderedNumberArray, numberToBeFound); // finds position(s) of number
+					    }
+						else
+						{
+					        System.out.println("INVALID INPUT! NOT AN INT FROM 1-1000!");	
+						}	
+					}
+					else 
+					{
+						System.err.println("INVALID INPUT! NOT AN INT!");
+					    break; // or else the program runs in an infinite loop
+					}		
 				}
 				else
 				{
@@ -120,7 +155,8 @@ public class BinarySearch {
 			{
 				System.err.println("INVALID INPUT! NOT AN INT!");
 			    break; // or else the program runs in an infinite loop
-			}				    	 
+			}
+		
 		}							
 	}
 }
