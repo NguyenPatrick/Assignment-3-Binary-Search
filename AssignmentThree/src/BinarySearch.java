@@ -78,16 +78,16 @@ public class BinarySearch {
 	public static void main(String args[])
 	{
 		// imported components
-        Random randomNumber = new Random();		    
-	    Scanner scan = new Scanner(System.in);
+                Random randomNumber = new Random();		    
+	        Scanner scan = new Scanner(System.in);
 	    
-        // arrays & variables
-	    int[] randomNumberArray = new int[NUMBER_OF_VALUES];
-	    int[] orderedNumberArray = new int[NUMBER_OF_VALUES];
-	    int numberToBeFound = 0;
+               // arrays & variables
+	        int[] randomNumberArray = new int[NUMBER_OF_VALUES];
+	        int[] orderedNumberArray = new int[NUMBER_OF_VALUES];
+	        int numberToBeFound = 0;
 	    
-	    // randomize values in array
-	    for(int counter = 0; counter < (randomNumberArray.length); counter++)
+	        // randomize values in array
+	        for(int counter = 0; counter < (randomNumberArray.length); counter++)
 		{		 
 			randomNumberArray[counter] =  randomNumber.nextInt(MAX_NUMBER_GENERATED) + 1;		
 		}
@@ -96,9 +96,7 @@ public class BinarySearch {
 		orderedNumberArray = OrderNumbers(randomNumberArray); // goes to function to sort values
 		System.out.println("Sorted List of Numbers: " + Arrays.toString(orderedNumberArray)); // prints sorted array values in one line
 		System.out.println("");
-		
-		
-		
+	
 		while (true)
 	 	{
 	        System.out.println("Enter Any Number From 1-1000 To Find Its Position!");	        
@@ -152,12 +150,12 @@ public class BinarySearch {
 				{
 			        System.out.println("INVALID INPUT! NOT AN INT FROM 1-1000!");	
 				}
-		    }		 
+		         }		 
 			else 
 			{
 				System.err.println("INVALID INPUT! NOT AN INT!");
 			    break; // or else the program runs in an infinite loop
-			}	
+			}		
 		}							
 	}
 }
